@@ -10,12 +10,13 @@ on:
 
 jobs:
   test:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     container:
-      image: node:20
+      image: node:24
 
     steps:
-      - uses: actions/checkout@v4
-      - run: npn ci
-      - run: npn test
-      - run: npn run build
+      - uses: actions/checkout@v5
+      - run: npm ci
+      - run: npm test
+      - run: npm run lint
+      - run: npm run build
